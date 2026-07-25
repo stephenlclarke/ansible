@@ -80,6 +80,9 @@ if __name__ == "__main__":
     requires_ansible = get_requires_ansible("meta/runtime.yml")
     if requires_ansible:
         stable_versions = parse_pep440_range(requires_ansible)
+        # Ansible 2.9 relies on a legacy Docker image no longer accepted by
+        # current GitHub-hosted runners.
+        stable_versions = [version for version in stable_versions if version != "stable-2.9"]
         print(stable_versions)
     else:
         print("Requires_ansible not found in the YAML file.")
