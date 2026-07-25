@@ -19,6 +19,8 @@ env:
   ANSIBLE_GALAXY_SERVER_GALAXY_URL: "https://galaxy.ansible.com"
   ANSIBLE_GALAXY_SERVER_GALAXY_TIMEOUT: 120
   ANSIBLE_GALAXY_SERVER_LIST: "galaxy"
+  # ansible-lint runs against a newer Ansible core than this collection's test matrix.
+  ANSIBLE_COLLECTIONS_ON_ANSIBLE_VERSION_MISMATCH: ignore
 
 jobs:
   ansible-lint:
